@@ -67,6 +67,26 @@ app.post("/api/notes", (req, res) => {
   });
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  const noteId = parseInt(req.params.id);
+
+  // Find the note's index based on the provided ID
+  const noteIndex = notes.findIndex((note) => note.id === noteId);
+
+  if (noteIndex === -1) {
+    // Note with the given ID not found
+    return res.status(404).send("Note not found.");
+  }
+
+  // Remove the note from the array
+  notes.splice(noteIndex, 1);
+
+  // Save the updated notes back to db.json
+
+  // Respond with a success message
+  res.send("Note deleted successfully.");
+});
+
 // Start our server so we can access our website
 app.listen(PORT, () => {
   console.log(`Our app is running on http://localhost:${PORT}`);
