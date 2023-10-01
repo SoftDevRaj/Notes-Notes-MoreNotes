@@ -42,7 +42,29 @@ app.get("/api/notes", (req, res) => {
 
 // Add a new note when we save one
 app.post("/api/notes", (req, res) => {
-  // We need to save our new note to a file here
+  const newNote = req.body;
+  newNote.id = Date.now(); // Assign a unique ID to the note
+
+  // Read the existing notes from db.json
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading the db.json file:", err);
+      return res.sendStatus(500);
+    }
+
+    const notes = JSON.parse(data);
+    notes.push(newNote); // Add the new note to the existing notes
+
+    // Write the updated notes array back to db.json
+    fs.writeFile("./db/db.json", JSON.stringify(notes, null, 2), (err) => {
+      if (err) {
+        console.error("Error writing to the db.json file:", err);
+        return res.sendStatus(500);
+      }
+
+      res.json(newNote); // Respond with the new note
+    });
+  });
 });
 
 // Start our server so we can access our website
