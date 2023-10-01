@@ -28,8 +28,18 @@ app.get('/notes', (req, res) => {
 
 // Get all the notes saved in our file
 app.get('/api/notes', (req, res) => {
-    // We need to read our notes from a file and send them here
+    // Read our notes from db.json
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading the db.json file:", err);
+            return res.sendStatus(500); // Send a server error response if there's an issue
+        }
+        
+        const notes = JSON.parse(data); // Convert the file content from string to JavaScript object/array
+        res.json(notes); // Send the notes as a response
+    });
 });
+
 
 // Add a new note when we save one
 app.post('/api/notes', (req, res) => {
