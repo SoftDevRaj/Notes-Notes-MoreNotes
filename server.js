@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 // Serve the notes page
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/notes.html"));
+  res.sendFile(path.join(__dirname, "./notes.html"));
 });
 
 // Fetch all notes from the db.json file
