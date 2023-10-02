@@ -1,22 +1,12 @@
 [
   {
     "title": "Buy Groceries",
-    "text": "Target\nTrader Joes",
-    "id": 1696204902379
-  },
-  {
-    "title": "Pay Rent",
-    "text": "10/1/23",
-    "id": 1696204918911
-  },
-  {
-    "title": "Add Paint",
-    "text": "Buy Paint",
-    "id": 1696205815146
+    "text": "Yogurt\nBananas\nPeanut Butter\nMeatballs\nApples\nNectarines",
+    "id": 1696226546158
   },
   {
     "title": "Buy Dog Food",
-    "text": "Newt/Bishop",
-    "id": 1696206031853
+    "text": "Target",
+    "id": 1696226558331
   }
 ]

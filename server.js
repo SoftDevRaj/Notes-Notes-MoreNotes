@@ -12,16 +12,16 @@ const PORT = process.env.PORT || 3000;
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("Public"));
 
 // Serve the main page
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "./Public/index.html"));
 });
 
 // Serve the notes page
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/notes.html"));
+  res.sendFile(path.join(__dirname, "./Public/notes.html"));
 });
 
 // Fetch all notes from the db.json file
