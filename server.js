@@ -16,12 +16,12 @@ app.use(express.static("Public"));
 
 // Serve the main page
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./index.html"));
+  res.sendFile(path.join(__dirname, "./Public/index.html"));
 });
 
 // Serve the notes page
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./notes.html"));
+  res.sendFile(path.join(__dirname, "./Public/notes.html"));
 });
 
 // Fetch all notes from the db.json file
